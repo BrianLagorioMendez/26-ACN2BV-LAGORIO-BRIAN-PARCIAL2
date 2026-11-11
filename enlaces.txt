@@ -1,0 +1,13 @@
+==================================================
+SEGUNDO PARCIAL - PROGRAMACIÓN WEB II
+==================================================
+Alumno: Brian Lagorio Mendez
+Comisión: ACN2BV
+Proyecto: Foro Interactivo Temático - Serie DARK
+
+1. Repositorio GitHub:
+https://github.com/tu-usuario/tu-repositorio
+
+2. Despliegue en InfinityFree:
+http://tu-sitio.infinityfreeapp.com
+==================================================
