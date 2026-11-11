@@ -18,19 +18,19 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if (empty($email) || empty($password)) {
         $errores[] = "Complete correo y contraseña.";
     } else {
-        $sql = "SELECT id, nombre, email, password FROM usuarios WHERE email = ?";
+        $sql = "SELECT id, nombre, email, password, rol FROM usuarios WHERE email = ?";
         $stmt = mysqli_prepare($conexion, $sql);
         mysqli_stmt_bind_param($stmt, "s", $email);
         mysqli_stmt_execute($stmt);
         $res = mysqli_stmt_get_result($stmt);
 
         if ($user = mysqli_fetch_assoc($res)) {
-            // Verificación estándar con password_verify
             if (password_verify($password, $user['password'])) {
                 session_regenerate_id(true);
                 $_SESSION['usuario_id'] = $user['id'];
                 $_SESSION['usuario_nombre'] = $user['nombre'];
                 $_SESSION['usuario_email'] = $user['email'];
+                $_SESSION['usuario_rol'] = $user['rol'] ?? 'user';
 
                 if ($recordar) {
                     setcookie('remember_user', $email, time() + (86400 * 30), "/");
