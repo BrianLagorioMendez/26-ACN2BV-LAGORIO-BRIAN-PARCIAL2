@@ -5,7 +5,7 @@ DROP TABLE IF EXISTS `comentarios`;
 DROP TABLE IF EXISTS `publicaciones`;
 DROP TABLE IF EXISTS `usuarios`;
 
--- 1. Tabla de Usuarios (Cuentas de fans / usuarios reales)
+-- 1. Tabla de Usuarios
 CREATE TABLE `usuarios` (
   `id` INT AUTO_INCREMENT PRIMARY KEY,
   `nombre` VARCHAR(100) NOT NULL,
@@ -14,7 +14,7 @@ CREATE TABLE `usuarios` (
   `fecha_registro` DATETIME DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
--- 2. Tabla de Publicaciones del Foro (CRUD Principal)
+-- 2. Tabla de Publicaciones
 CREATE TABLE `publicaciones` (
   `id` INT AUTO_INCREMENT PRIMARY KEY,
   `usuario_id` INT NOT NULL,
@@ -25,7 +25,7 @@ CREATE TABLE `publicaciones` (
   FOREIGN KEY (`usuario_id`) REFERENCES `usuarios`(`id`) ON DELETE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
--- 3. Tabla de Comentarios (Interacción entre usuarios del foro)
+-- 3. Tabla de Comentarios
 CREATE TABLE `comentarios` (
   `id` INT AUTO_INCREMENT PRIMARY KEY,
   `publicacion_id` INT NOT NULL,
@@ -36,7 +36,7 @@ CREATE TABLE `comentarios` (
   FOREIGN KEY (`usuario_id`) REFERENCES `usuarios`(`id`) ON DELETE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
--- Usuarios de Prueba (Contraseña de todos: 123456 - Almacenada con password_hash)
+-- Usuarios de Prueba (Contraseña para todos: 123456)
 INSERT INTO `usuarios` (`id`, `nombre`, `email`, `password`) VALUES
 (1, 'Gonzalo_89', 'gonzalo@gmail.com', '$2y$10$44iYc4n/iQo/Sj.BqK/qOO3/zZpLw7v2O0oV8uPqM5/eK9/Nn.x7a'),
 (2, 'Sofi_gomez', 'sofi.gomez@hotmail.com', '$2y$10$44iYc4n/iQo/Sj.BqK/qOO3/zZpLw7v2O0oV8uPqM5/eK9/Nn.x7a'),

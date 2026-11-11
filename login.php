@@ -25,10 +25,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $res = mysqli_stmt_get_result($stmt);
 
         if ($user = mysqli_fetch_assoc($res)) {
-            // Verifica contra hash encriptado O contra texto plano (compatibilidad total de pruebas)
-            $password_valida = password_verify($password, $user['password']) || ($password === $user['password']);
-
-            if ($password_valida) {
+            // Verificación estándar con password_verify
+            if (password_verify($password, $user['password'])) {
                 session_regenerate_id(true);
                 $_SESSION['usuario_id'] = $user['id'];
                 $_SESSION['usuario_nombre'] = $user['nombre'];
