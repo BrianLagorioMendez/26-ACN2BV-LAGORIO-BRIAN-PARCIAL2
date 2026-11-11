@@ -4,6 +4,7 @@ require_once 'includes/nav.php';
 
 $busqueda = trim($_GET['buscar'] ?? '');
 $categoria_filtro = trim($_GET['categoria'] ?? '');
+$es_admin = isset($_SESSION['usuario_rol']) && $_SESSION['usuario_rol'] === 'admin';
 
 if (!empty($busqueda)) {
     $sql = "SELECT p.*, u.nombre as autor, (SELECT COUNT(*) FROM comentarios c WHERE c.publicacion_id = p.id) as cant_comentarios 
@@ -59,6 +60,9 @@ if (!empty($busqueda)) {
 <div class="foro-grid">
     <?php if (mysqli_num_rows($resultado) > 0): ?>
         <?php while ($pub = mysqli_fetch_assoc($resultado)): ?>
+            <?php 
+                $es_dueno = isset($_SESSION['usuario_id']) && $_SESSION['usuario_id'] == $pub['usuario_id'];
+            ?>
             <article class="post-card">
                 <div class="post-meta">
                     <span class="badge-cat"><?php echo e($pub['categoria']); ?></span>
@@ -73,7 +77,7 @@ if (!empty($busqueda)) {
                     <span>Autor: <strong><?php echo e($pub['autor']); ?></strong> | Comentarios: (<?php echo $pub['cant_comentarios']; ?>)</span>
                     <div>
                         <a href="ver_post.php?id=<?php echo $pub['id']; ?>" class="btn-link">Ver Discusión</a>
-                        <?php if (isset($_SESSION['usuario_id']) && $_SESSION['usuario_id'] == $pub['usuario_id']): ?>
+                        <?php if ($es_dueno || $es_admin): ?>
                             | <a href="editar_publicacion.php?id=<?php echo $pub['id']; ?>" class="btn-editar">Editar</a>
                             | <a href="eliminar_publicacion.php?id=<?php echo $pub['id']; ?>" class="btn-eliminar" onclick="return confirm('¿Eliminar publicación?');">Eliminar</a>
                         <?php endif; ?>
