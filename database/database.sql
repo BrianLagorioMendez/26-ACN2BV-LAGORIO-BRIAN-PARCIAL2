@@ -1,6 +1,3 @@
-CREATE DATABASE IF NOT EXISTS `parcial_dark` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
-USE `parcial_dark`;
-
 DROP TABLE IF EXISTS `comentarios`;
 DROP TABLE IF EXISTS `publicaciones`;
 DROP TABLE IF EXISTS `usuarios`;
