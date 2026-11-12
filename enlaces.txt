@@ -9,5 +9,5 @@ Repositorio GitHub:
 https://github.com/BrianLagorioMendez/26-ACN2BV-LAGORIO-BRIAN-PARCIAL2.git
 
 Despliegue en InfinityFree:
-http://tu-sitio.infinityfreeapp.com
+https://26-acn2bv-lagorio-brian.infinityfreeapp.com/
 ==================================================
