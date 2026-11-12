@@ -5,9 +5,9 @@ Alumno: Brian Lagorio Mendez
 Comisión: ACN2BV
 Proyecto: Foro Interactivo Temático - Serie DARK
 
-1. Repositorio GitHub:
-https://github.com/tu-usuario/tu-repositorio
+Repositorio GitHub:
+https://github.com/BrianLagorioMendez/26-ACN2BV-LAGORIO-BRIAN-PARCIAL2.git
 
-2. Despliegue en InfinityFree:
+Despliegue en InfinityFree:
 http://tu-sitio.infinityfreeapp.com
 ==================================================
