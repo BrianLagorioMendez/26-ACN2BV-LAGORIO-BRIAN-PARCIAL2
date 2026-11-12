@@ -1,7 +1,6 @@
 <?php
 require_once 'includes/conexion.php';
 require_once 'includes/auth.php';
-require_once 'includes/header.php';
 
 $errores = [];
 $titulo = '';
@@ -35,6 +34,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 }
 
+require_once 'includes/header.php';
 require_once 'includes/nav.php';
 ?>
 
@@ -55,11 +55,11 @@ require_once 'includes/nav.php';
         <label for="categoria">Categoría:</label>
         <select id="categoria" name="categoria" required>
             <option value="">Seleccione una opción</option>
-            <option value="Teorías">Teorías</option>
-            <option value="Multiverso">Multiverso</option>
-            <option value="Misterios">Misterios</option>
-            <option value="Ciencia">Ciencia</option>
-            <option value="Investigación">Investigación</option>
+            <option value="Teorías" <?php echo $categoria === 'Teorías' ? 'selected' : ''; ?>>Teorías</option>
+            <option value="Multiverso" <?php echo $categoria === 'Multiverso' ? 'selected' : ''; ?>>Multiverso</option>
+            <option value="Misterios" <?php echo $categoria === 'Misterios' ? 'selected' : ''; ?>>Misterios</option>
+            <option value="Ciencia" <?php echo $categoria === 'Ciencia' ? 'selected' : ''; ?>>Ciencia</option>
+            <option value="Investigación" <?php echo $categoria === 'Investigación' ? 'selected' : ''; ?>>Investigación</option>
         </select>
     </div>
     <div class="campo">
