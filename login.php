@@ -1,6 +1,5 @@
 <?php
 require_once 'includes/conexion.php';
-require_once 'includes/header.php';
 
 if (isset($_SESSION['usuario_id'])) {
     header("Location: perfil.php");
@@ -52,6 +51,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 }
 
+require_once 'includes/header.php';
 require_once 'includes/nav.php';
 ?>
 
