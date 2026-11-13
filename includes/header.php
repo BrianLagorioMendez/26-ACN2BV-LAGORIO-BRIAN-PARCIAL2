@@ -24,7 +24,7 @@ function e($str) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>DARK - Foro de Discusión & Teorías</title>
-    <!-- Se corrigió el nombre exacto de tus archivos: tema-oscuro.css y tema-claro.css -->
+    
     <link rel="stylesheet" href="css/tema-<?php echo e($tema_actual); ?>.css?v=<?php echo time(); ?>">
 </head>
 <body>
